@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class MainTest {
@@ -15,5 +16,8 @@ public class MainTest {
        );
        // Create comparator for employee name and age.
        list.stream().sorted((o1, o2) ->o1.getName().compareTo(o2.getName())).forEach(System.out::println);
+       list.stream().sorted((o1, o2) ->o1.getAge().compareTo(o2.getAge())).forEach(System.out::println);
+       list.sort(Comparator.comparing(Employee::getName).thenComparing(Employee::getAge));
+       System.out.println(list);
     }
 }
